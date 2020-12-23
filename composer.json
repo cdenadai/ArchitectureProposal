@@ -9,7 +9,7 @@
         }
     ],
     "require": {
-        "php": "^7.4",
+        "php": "^8.0",
         "fakerphp/faker": "^1.13"
     },
     "require-dev": {
@@ -18,6 +18,7 @@
     "autoload": {
         "psr-4": {
             "Arch\\Domain\\": "Domain",
+            "Arch\\UseCases\\": "UseCases",
             "Arch\\Infra\\": "Infra",
             "Arch\\Tests\\": "Tests"
         },

@@ -34,8 +34,7 @@ class MemoryPersonRepositoryTest extends TestCase
     public function should_insert_if_call_save_and_dont_have_id()
     {
         $person = $this->makeFakePerson();
-        $this->memoryRepository->save($person);
-        $createdPerson = $this->memoryRepository->find(1);
+        $createdPerson = $this->memoryRepository->save($person);
     
         $this->assertSame($person->name(), $createdPerson->name());
         $this->assertSame($person->email(), $createdPerson->email());
@@ -45,12 +44,10 @@ class MemoryPersonRepositoryTest extends TestCase
     public function should_update_if_call_save_and_have_id()
     {
         $person = $this->makeFakePerson();
-        $this->memoryRepository->save($person);
-        $createdPerson = $this->memoryRepository->find(1);
-
+        $createdPerson = $this->memoryRepository->save($person);
+        
         $createdPerson->setName('Test');
-        $this->memoryRepository->save($createdPerson);
-        $updatedPerson = $this->memoryRepository->find(1);
+        $updatedPerson = $this->memoryRepository->save($person);
 
         $this->assertSame('Test', $updatedPerson->name());
         $this->assertSame($person->email(), $updatedPerson->email());
@@ -69,8 +66,8 @@ class MemoryPersonRepositoryTest extends TestCase
     public function should_find_if_exists_on_db()
     {
         $person = $this->makeFakePerson();
-        $this->memoryRepository->save($person);
-        $createdPerson = $this->memoryRepository->find(1);
+        $createdPerson = $this->memoryRepository->save($person);
+        
         $this->assertSame($person->name(), $createdPerson->name());
         $this->assertSame($person->email(), $createdPerson->email());
     }

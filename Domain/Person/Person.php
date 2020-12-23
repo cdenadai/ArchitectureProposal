@@ -10,9 +10,15 @@ class Person
     public string $name;
     private Email $email;
 
-    public static function makeByValues(?int $id = null, string $name, string $email)
+    public static function make(?int $id = null, string $name, string $email): Person
     {
         return new Person($id, $name, new Email($email));
+    }
+
+    public static function makeFromIterable(iterable|object $data): Person
+    {
+        $data = (object) $data;
+        return Person::make($data->id, $data->name, new Email($data->email));
     }
 
     public function __construct(?int $id = null,string $name, Email $email)

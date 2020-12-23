@@ -14,12 +14,13 @@ class PersonFactory
         $this->faker = Faker::create();
     }
 
-    public function make(array $data = [])
+    public function make(iterable|object $data = []): Person
     {
-        return Person::makeByValues(
-            $data['id'] ?? null,
-            $data['name'] ?? $this->faker->name,
-            $data['email'] ?? $this->faker->email,
+        $data = (object) $data;
+        return Person::make(
+            $data->id ?? null,
+            $data->name ?? $this->faker->name,
+            $data->email ?? $this->faker->email,
         );
     }
 }
