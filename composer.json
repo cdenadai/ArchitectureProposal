@@ -1,0 +1,36 @@
+{
+    "name": "denacode/clean_architecture_proposal",
+    "description": "An architecture example for PHP projects using Clean Architecture concepts",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Caio Denadai",
+            "email": "cdenadaisouza@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.4",
+        "fakerphp/faker": "^1.13"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Arch\\Domain\\": "Domain",
+            "Arch\\Infra\\": "Infra",
+            "Arch\\Tests\\": "Tests"
+        },
+        "files": [
+            "Domain/Helpers/OnlyNumbers.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Arch\\Tests\\": "Tests"
+        }
+    },
+    "scripts": {
+        "test": "phpunit"
+    }
+}
